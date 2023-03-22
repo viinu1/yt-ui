@@ -40,7 +40,9 @@ const MENU = [
 
 const MENUSUBNAV = [
     {
-        title: 'Thư viện',
+        title: 'Thư 
+        
+        ',
         icon: <VideoLibraryOutlined />,
     },
     {
@@ -118,7 +120,7 @@ function Sidebar() {
             <Box>
                 <List component="ul" aria-label="main" sx={{ overflowY: 'auto', maxWidth: '100%' }}>
                     {MENU.map((menu, index) => (
-                        <Link key={index} to={menu.to} sx={{ textDecoration: 'none' }}>
+                        <Link key={index} to={menu.to} sx={{ textDecoration: 'none', color: '#000' }}>
                             <ListItem sx={{ marginTop: '0px', padding: '0', pl: '16px' }}>
                                 <MyListItemButton
                                     selected={selectedIndex === index}
