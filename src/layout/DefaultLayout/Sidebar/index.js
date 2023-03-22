@@ -40,9 +40,7 @@ const MENU = [
 
 const MENUSUBNAV = [
     {
-        title: 'Thư 
-        
-        ',
+        title: 'Thư viện',
         icon: <VideoLibraryOutlined />,
     },
     {

@@ -3,7 +3,7 @@ import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 // import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
 
-import { useRef } from 'react';
+// import { useRef } from 'react';
 
 // const MyCardMedia = styled(CardMedia)(({ theme }) => ({
 //     width: '100%',
@@ -11,39 +11,39 @@ import { useRef } from 'react';
 //     objectFit: 'contain',
 // }));
 
-function CardItem({ data, videoBasic, className }) {
-    const videoRef = useRef(null);
-
-    const handleMouseEnter = () => {
-        videoRef.current.play();
-    };
-    const handleMouseLeave = () => {
-        videoRef.current.currentTime = 0;
-        videoRef.current.pause();
-    };
+function CardItem({ data, videoBasic }) {
+    // const videoRef = useRef(null);
+    // console.log(data);
+    // const handleMouseEnter = () => {
+    //     videoRef.current.play();
+    // };
+    // const handleMouseLeave = () => {
+    //     videoRef.current.currentTime = 0;
+    //     videoRef.current.pause();
+    // };
     return (
         <Card
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            // onMouseEnter={handleMouseEnter}
+            // onMouseLeave={handleMouseLeave}
             sx={{ width: { md: '330px', xs: '100%' }, boxShadow: 'none' }}
         >
             <Link
                 to={data?.id?.videoId ? `/videos/${data.id.videoId}` : '/videos/vanvi'}
-                style={{ textDecoration: 'none ' }}
+                style={{ textDecoration: 'none ', color: '#000' }}
             >
                 <CardMedia
-                    component="video"
-                    src={videoBasic.src}
-                    alt={data?.snippet?.title}
+                    component="img"
+                    alt={data?.snippet?.title || videoBasic.title}
                     sx={{ width: '320px', height: '180px' }}
-                    ref={videoRef}
-                    muted
+                    image={data?.snippet?.thumbnails.medium.url}
+                    // ref={videoRef}
+                    // muted
                 />
             </Link>
             <CardContent sx={{ p: 0 }}>
                 <Link
                     to={data?.id?.videoId ? `/videos/${data.id.videoId}` : '/videos/vanvi'}
-                    style={{ textDecoration: 'none ' }}
+                    style={{ textDecoration: 'none ', color: '#000' }}
                 >
                     <Typography
                         variant="body1"

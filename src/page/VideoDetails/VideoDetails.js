@@ -163,7 +163,10 @@ function VideoDetails() {
                         />
 
                         <Box>
-                            <Link to={data?.id?.videoId ? `/videos/${data.id.videoId}` : '/videos/vanvi'}>
+                            <Link
+                                style={{ textDecoration: 'none ', color: '#000' }}
+                                to={data?.id?.videoId ? `/videos/${data.id.videoId}` : '/videos/vanvi'}
+                            >
                                 <Typography
                                     sx={{ height: '28px', lineHeight: '14px', overflow: 'hidden' }}
                                     variant="body1"
@@ -173,6 +176,7 @@ function VideoDetails() {
                                 </Typography>
                             </Link>
                             <Link
+                                style={{ textDecoration: 'none ', color: '#000' }}
                                 to={data?.snippet?.channelId ? `/channel/${data.snippet.channelId}` : '/videos/vanvi'}
                             >
                                 <Typography m="6px 0" fontSize="12px" variant="body2">
