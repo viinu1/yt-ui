@@ -12,8 +12,9 @@ import {
     ThumbUpOutlined,
     VideoLibraryOutlined,
 } from '@mui/icons-material';
-import { Box, Divider, Link, List, ListItem, ListItemButton, ListItemIcon, ListItemText, styled } from '@mui/material';
+import { Box, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, styled } from '@mui/material';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SubscribeChannel from '../../../component/SubscribeChannel';
 
 const MENU = [
@@ -117,7 +118,7 @@ function Sidebar() {
             <Box>
                 <List component="ul" aria-label="main" sx={{ overflowY: 'auto', maxWidth: '100%' }}>
                     {MENU.map((menu, index) => (
-                        <Link key={index} href={menu.to} sx={{ textDecoration: 'none' }}>
+                        <Link key={index} to={menu.to} sx={{ textDecoration: 'none' }}>
                             <ListItem sx={{ marginTop: '0px', padding: '0', pl: '16px' }}>
                                 <MyListItemButton
                                     selected={selectedIndex === index}
