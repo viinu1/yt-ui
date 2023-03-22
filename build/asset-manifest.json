@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/static/js/main.bb62c2e9.js",
+    "static/media/mov_bbb.mp4": "/static/media/mov_bbb.2c92d01256c8f29e1b68.mp4",
+    "index.html": "/index.html",
+    "main.bb62c2e9.js.map": "/static/js/main.bb62c2e9.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.bb62c2e9.js"
+  ]
+}
