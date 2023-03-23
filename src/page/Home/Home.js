@@ -114,17 +114,11 @@ function Home() {
                 </Paper>
             </Box>
             <Stack direction="row" flexWrap="wrap" justifyContent="start" gap={2} ml={1.2}>
-                {videos.length > 0 ? (
-                    videos.map((item, index) => (
-                        <Box key={index}>
-                            <CardItem key={index} data={item} />
-                        </Box>
-                    ))
-                ) : (
-                    <Box>
-                        <CardItem videoBasic={videoBasic} />
+                {videos.map((item, index) => (
+                    <Box key={index}>
+                        <CardItem key={index} data={item} />
                     </Box>
-                )}
+                ))}
             </Stack>
         </>
     );

@@ -1,9 +1,11 @@
-import { CheckCircle } from '@mui/icons-material';
-import { Avatar, Box, Paper, Typography } from '@mui/material';
+import { CheckCircle, MoreVertOutlined } from '@mui/icons-material';
+import { Avatar, Box, Card, CardContent, CardMedia, Paper, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchFromAPI } from '../../API/fetchFromAPI';
+
+import { videoBasic } from '../../API/basic';
 
 // import { videoBasic } from '../../API/basic';
 function Search({ data }) {
@@ -16,61 +18,63 @@ function Search({ data }) {
     console.log(results);
     return (
         <Stack mt="16px" ml="24px" gap={2}>
-            {results.map((item, index) => (
-                <Paper
-                    sx={{
-                        display: 'flex',
-                        mb: '12px',
-                        width: '100%',
-                        height: '220px',
-                        gap: '12px',
-                        boxShadow: 'none',
-                        cursor: 'pointer',
-                    }}
-                    component="div"
-                    square
-                    key={index}
+            <Card sx={{ width: '100%', display: 'flex', gap: '12px', boxShadow: 'none' }}>
+                <Link
+                    to={data?.id?.videoId ? `/videos/${data.id.videoId}` : '/videos/vanvi'}
+                    style={{ textDecoration: 'none ', color: '#000' }}
                 >
-                    <Paper component="video" src={item.snippet?.thumbnails?.high?.url} sx={{ width: '30%' }} />
-
-                    <Box>
-                        <Link
-                            to={item?.id ? `/videos/${item.id.videoId}` : `/videos/vanvi`}
-                            style={{ textDecoration: 'none', color: '#000' }}
-                        >
-                            <Typography
-                                sx={{ height: '44px', lineHeight: '22px', overflow: 'hidden', mt: '12px' }}
-                                variant="h5"
-                                fontSize="18px"
-                                fontWeight="400"
-                            >
-                                {item.snippet?.title}
-                            </Typography>
-                        </Link>
-                        <Typography fontSize="12px" variant="body2" fontWeight="400" m="6px 0">
-                            1,1tr Lượt xem 2 năm trước
-                        </Typography>
-                        <Typography fontSize="12px" variant="body2" m="12px 0">
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                <Avatar src={item.snippet?.thumbnails?.default?.url} sx={{ width: 24, height: 24 }} />
-                                <Typography fontSize="12px" variant="body2">
-                                    {item.snippet?.channelTitle}
-                                </Typography>
-                                <CheckCircle sx={{ width: 14, height: 14 }} />
-                            </Box>
-                        </Typography>
+                    <CardMedia
+                        component="img"
+                        alt={videoBasic.title}
+                        sx={{ width: '100%', height: '180px' }}
+                        image={videoBasic.urlBasic}
+                        // ref={videoRef}
+                        // muted
+                    />
+                </Link>
+                <CardContent sx={{ p: 0, flex: 1 }}>
+                    <Link
+                        to={data?.id?.videoId ? `/videos/${data.id.videoId}` : '/videos/vanvi'}
+                        style={{ textDecoration: 'none ', color: '#000' }}
+                    >
                         <Typography
-                            variant="body2"
-                            sx={{ height: '12px', lineHeight: '12px', overflow: 'hidden', mb: '24px' }}
-                            fontSize="12px"
-                            fontWeight="400"
+                            variant="body1"
+                            fontWeight={500}
+                            color="#000"
+                            fontSize="18px"
+                            sx={{ height: '40px', lineHeight: '20px', overflow: 'hidden', mt: 1.2 }}
                         >
-                            {item.snippet?.description}
+                            title o day title o daytitle o daytitle o daytitle o daytitle o daytitle o daytitle o
+                            daytitle o daytitle o daytitle o daytitle o day
                         </Typography>
-                        <button style={{ backgroundColor: '#ccc', border: 'none', cursor: 'pointer' }}>4k</button>
-                    </Box>
-                </Paper>
-            ))}
+                    </Link>
+                    <Typography variant="body1" fontWeight={300} color="#606060" fontSize="12px" mb="12px">
+                        18N Lượt xem 2 ngày trước
+                    </Typography>
+                    <Link
+                        to={data?.snippet?.channelId ? `/channel/${data.snippet.channelId}` : '/videos/vanvi'}
+                        style={{ textDecoration: 'none ', display: 'flex', gap: '12px' }}
+                    >
+                        <Avatar sx={{ width: '24px', height: '24px' }} />
+                        <Typography variant="body1" fontWeight={300} color="#606060" fontSize="12px">
+                            channel o day
+                            <CheckCircle sx={{ color: 'blue', fontSize: '12px', ml: '5px' }} />
+                        </Typography>
+                    </Link>
+
+                    <Typography
+                        sx={{ mt: '16px', height: '26px', lineHeight: '13px', overflow: 'hidden' }}
+                        variant="body1"
+                        fontWeight={300}
+                        color="#606060"
+                        fontSize="12px"
+                    >
+                        Những Bản Lofi Việt Nhẹ Nhàng Cực Chill | Nhạc Lofi Chill Buồn Nhất 2021 ♫ Lofi Gây Nghiện Hay
+                        Nhất Những Bản Lofi Việt ...
+                    </Typography>
+                </CardContent>
+                <MoreVertOutlined />
+            </Card>
         </Stack>
     );
 }

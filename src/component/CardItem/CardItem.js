@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { CheckCircle } from '@mui/icons-material';
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 // import { styled } from '@mui/system';
@@ -5,14 +6,8 @@ import { Link } from 'react-router-dom';
 
 // import { useRef } from 'react';
 
-// const MyCardMedia = styled(CardMedia)(({ theme }) => ({
-//     width: '100%',
-//     height: '180px',
-//     objectFit: 'contain',
-// }));
-
 function CardItem({ data, videoBasic }) {
-    // const videoRef = useRef(null);
+    const videoRef = useRef(null);
     // console.log(data);
     // const handleMouseEnter = () => {
     //     videoRef.current.play();
@@ -21,6 +16,14 @@ function CardItem({ data, videoBasic }) {
     //     videoRef.current.currentTime = 0;
     //     videoRef.current.pause();
     // };
+
+    // let componentMedia = 'img';
+    // let src = data?.snippet?.thumbnails.medium.url;
+    // if (Object.keys(data).length) {
+    //     componentMedia = 'video';
+    //     src = videoBasic.src;
+    // }
+
     return (
         <Card
             // onMouseEnter={handleMouseEnter}
@@ -35,9 +38,9 @@ function CardItem({ data, videoBasic }) {
                     component="img"
                     alt={data?.snippet?.title || videoBasic.title}
                     sx={{ width: '320px', height: '180px' }}
-                    image={data?.snippet?.thumbnails.medium.url}
-                    // ref={videoRef}
-                    // muted
+                    src={data?.snippet?.thumbnails.medium.url}
+                    ref={videoRef}
+                    muted
                 />
             </Link>
             <CardContent sx={{ p: 0 }}>

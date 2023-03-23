@@ -14,6 +14,7 @@ import { fetchFromAPI } from '../../API/fetchFromAPI';
 import { videoBasic } from '../../API/basic';
 import { Link, useParams } from 'react-router-dom';
 import Comment from '../../component/Comment';
+import CardItem from '../../component/CardItem';
 
 const MyButton = styled(Button)(({ theme }) => ({
     backgroundColor: '#0000000d',

@@ -7,7 +7,7 @@ function DefaultLayout({ children }) {
     return (
         <Box>
             <Header />
-            <Stack mt="64px" direction={'row'} justifyContent="space-between">
+            <Stack mt="64px" direction={'row'} justifyContent="space-between" flex={1}>
                 <Sidebar />
                 <Box flex={4}>{children}</Box>
             </Stack>

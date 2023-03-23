@@ -48,8 +48,6 @@ function Comment({ id }) {
     };
 
     const handleClickLike = (id, like) => {
-        // comments.forEach((comment) => (comment.id !== id ? setClick(!click) : ''));
-
         for (let i = 0; i < comments.length; i++) {
             if (comments[i].id === id) {
                 setClick(true);
@@ -67,7 +65,7 @@ function Comment({ id }) {
         <>
             <Stack mb="24px">
                 <Stack direction="row" alignItems="center" gap={3}>
-                    <Typography variant="body1">{comments.length} bình luận</Typography>
+                    <Typography variant="body1">100 bình luận</Typography>
                     <Button variant="text" startIcon={<Sort />}>
                         Sắp xếp theo
                     </Button>
