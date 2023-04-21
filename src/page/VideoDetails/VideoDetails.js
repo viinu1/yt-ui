@@ -59,11 +59,10 @@ function VideoDetails() {
             console.log('call api thất bại');
         }
     }, [id]);
-    // console.log(comments);
 
     return (
-        <Stack direction={{ xs: 'column', sm: 'row' }} gap={2} mt="24px">
-            <Box sx={{ width: { md: '65%', sm: '70%' } }}>
+        <Stack direction={{ xs: 'column', sm: 'column', md: 'row' }} gap={2} mt="24px">
+            <Box sx={{ width: { md: '65%', sm: '100%' } }}>
                 <Card sx={{ boxShadow: 'none', width: '100%' }}>
                     <CardMedia
                         controls
@@ -141,10 +140,10 @@ function VideoDetails() {
                     <Comment id={id} />
                 </Stack>
             </Box>
-            <Box sx={{ width: { md: '35%', sm: '30%' } }}>
+            <Box sx={{ width: { md: '35%', sm: '100%' } }}>
                 {videos.map((data, index) => (
                     <Paper
-                        index={index}
+                        key={index}
                         sx={{
                             display: 'flex',
                             mb: '12px',
@@ -160,7 +159,7 @@ function VideoDetails() {
                         <Paper
                             component="img"
                             src={data.snippet?.thumbnails?.medium?.url || videoBasic.urlBasic}
-                            sx={{ width: '50%' }}
+                            sx={{ width: '100%' }}
                         />
 
                         <Box>
